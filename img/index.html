@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="function.js"></script>
+	<script src="animate.js"></script>
+
+</head>
+<style>
+	.box{
+		width:100px;
+		height:100px;
+		background: plum;
+		position:fixed;
+		top:0;
+		left:0;
+	}
+</style>
+<body>
+	<div class="box"></div>
+</body>
+</html>
+
+<script>
+
+
+	var box=$(".box")[0];
+	var shpx=10;
+	var shpy=10;
+	var bw=box.offsetWidth;
+	var bh=box.offsetHeight;
+	function move(){
+        var w=document.documentElement.clientWidth;
+        var h=document.documentElement.clientHeight;
+        var x=box.offsetLeft+shpx;
+        var y=box.offsetTop+shpy;
+        if(y>=h-bh){y=h-bh,shpy*=-1}
+        if(y<=0){y=0,shpy*=-1}
+        if(x>=w-bw){x=w-bw,shpx*=-1}
+        if(x<=0){x=0,shpx*=-1}
+         box.style.left=x+"px";
+         box.style.top=y+"px";
+
+	}
+	var t=setInterval(move,80)
+</script>
